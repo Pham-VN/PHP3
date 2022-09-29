@@ -1,0 +1,24 @@
+<?php
+$listeNumero = array(1,14,15,16,134,144);
+echo "La liste de numéro est :<br>";
+for ($i = 0; $i < sizeof($listeNumero); $i++) {
+    echo "$listeNumero[$i] <br>";
+}
+echo " calcule la moyenne des nombres contenus dans un tableau donné";
+function recherche($tab,$b) {
+    $dem = 0;
+    for ($i = 0; $i < count($tab); $i++) {
+        if ($tab[$i]=== $b) {
+            $dem += 1;
+        } 
+    }
+    if($dem > 0) {
+        echo "<p>$b est existe</p>";
+    } else {
+        echo "<p>$b n'est pas existe</p>";
+    }
+}
+recherche($listeNumero,4);
+recherche($listeNumero,14);
+
+?>
