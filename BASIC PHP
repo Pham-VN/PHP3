@@ -1,0 +1,208 @@
+<?php
+// déclarer une variable
+echo "<h2>Variable</h2>";
+$prenom = "Fred";
+echo '<p>Bonjour</p>';
+print '<p>Nous sommes vendredi et il fait beau!</p>';
+echo "<p>Bonjour $prenom</p>"; // faire attention : il faut mettre guillement double.
+echo "<p>Comment vas-tu $prenom?</p>";
+echo "<p>Voici tes informations de profil $prenom....</p>";
+$prenom = "Thuy";
+echo "<p>Bonjour $prenom</p>"; // faire attention : il faut mettre guillement double.
+echo "<p>Comment vas-tu $prenom?</p>";
+echo "<p>Voici tes informations de profil $prenom....</p>";
+$variableEntier = 1;
+echo "<h2>Des types d'un varibales</h2>";
+echo "Type entier est : $variableEntier";
+echo "<p>Le type de variable Entier est: ".gettype($variableEntier) . "</p>";
+$unechaine = "Une chaine de caractère";
+echo "<p>Type CHAINE DE CARACÈRE est " . gettype($unechaine) ."</p>";
+$typeBoolean = TRUE;
+echo "Type TRUE est FALSE est ".gettype($typeBoolean);
+echo "<h2>Assignation par référence</h2>";
+$fruit1 = "pomme";
+$fruit2 = "banane";
+echo "fruit1 : $fruit1 <br>"; // affiche : pomme;
+echo "fruit2 : $fruit2 <br>";// affiche : banane;
+$fruit2 = $fruit1; // assigne la référence de $fruit1 à $fruit2
+echo "fruit1 : $fruit1 <br>"; // affiche : pomme;
+echo "fruit2 : $fruit2 <br>";
+$fruit2 = "fraise"; // changer le contenu de variable $fruit2
+echo "fruit1 : $fruit1 <br>"; // affiche : pomme;
+echo "fruit2 : $fruit2 <br>"; 
+echo "<h2>Constantes</h2>";
+echo "<p>Constantes est comme une varaible, il sert à conserver une valeur, par contre, le contenu d'une constante ne porra pas être redéfinie durant l'éxécution du script, il peut donc être utilse de garder certaines informations de manière sûre comme les informations de connexion à une base de donées ou le chemin fixe vers un dossier du site, ect.</p>";
+echo "<h3>SYNTAXE</h3>";
+define ("CAPITALE", "Paris");
+echo CAPITALE . "<br>";
+echo "<p><b>define</b> est une fonction prédéfine permettant de définir une contante en annonçant d'abord <b>son nom</b>, puis ensuite de <b>valeur</b>.</p>";
+echo "<h2>Concaténation lors d'un affichage</h2>";
+$x = "Bonjour ";
+$y = "tout le monde ";
+echo $x . " " . $y . "<br>";
+echo "$x $y <br>"; // même affichage de ligne dessous.
+echo "<h2>Syntaxe : Différence entre l'utilisation des guillemets et des quotes</h2>";
+echo "<h4>Utilisation des quotes avec l'anti-slash pour éviter une erreur sur l'apostrophe du mot : aujourd'hui</h4>";
+echo 'aujourd\'hui';
+echo "<h4>Quand on veut afficher la valeur d'un variable, il faut mieux utiliser le guillement doublement pour ne pas afficher le variable comme une chaîne de caractère.</h4>";
+$salut = "Bonjour ";
+echo "$salut tout le monde";
+echo "<h2>Conditions Et Operateurs</h2>";
+$a = 10;
+$b = 5;
+$c = 2;
+if ($a > $b) {
+    echo "A est bien supérieur à B.<br>";
+} else {
+    echo "Non, c'est B qui est supérieur à A. <br>";
+} 
+echo "<h3>La condition avec AND (&&)</h3>";
+if ($a > $b && $b > $c) {
+    echo "A est supérieur à B et B est supérieur à C <br>";
+}
+echo "<p><b>Il est possible de faire un IF sans ELSE</b>.</p>";
+echo "<h3>La condition avec OR (||)</h3>";
+if($a === 9 || $b > $c) 
+    echo "Au moins l'une des 2 conditions est bonne (ou peut-être les 2), sinon vous ne me verriez pas m'afficher ! <br>";
+echo "<h3>La condition XOR</h3>";
+if($a == 10 XOR $b == 6) // XOR : seulement l'une des 2 conditions doit être valide.
+{
+    echo 'Une seule des 2 conditions est bonne !<br>';
+}
+echo "<h3>Les conditions avec IF / ELSEIF / ELSE</h3>";
+if ($a == 8) {
+    echo "1 - A est égal à 8 <br>";
+} elseif ($a != 10) {
+    echo "2 - A est différent de 10 <br>";
+} else {
+    echo  "3 - tout le monde a faux A n'est pas égal a 8 et n'est pas différent de 10. Du coup c'est moi le else qui gagne !<br>";
+}
+echo "<h3>Condition IF / ELSE sous forme contracté.</h3>";
+echo ($a == 10) ? "A est égale à 10" : "A n'est pas égale à 10 ". "<br>";
+echo "<p><b>SYNTAXE</b>: ". '($a'."== 10) ? A est égale à 10 : A n'est pas égale à 10 <p>";
+echo "<h3>La différence entre 1 égal , 2 égal et 3 égal</h3>";
+echo "<li> <b>=</b>  permet de faire une <b>affection de valeur</b> à une variable</li>";
+echo "<li> <b>==</b> permet de comparer la <b>valeur</b> entre deux variables.</li>";
+echo "<li> <b>===</b> permet de comparer la <b>valeur</b> et le <b>type</b> entre deux variables.</li>";
+echo "<h3>Condition Switch</h3>";
+echo "<p>Lorsqu'il y a un grand nombre de conditions à tester (>3), nous utilisons généralement la structure conditionnelle SWITCH</p>";
+$monPays = 'France';
+switch($monPays) {
+    case "Italie": 
+        echo "Vous êtes Italien! <br>";
+    break;
+    case 'Espagne': 
+        echo "Vous êtes Espagnonl! <br>";
+    break;
+    case 'Angleterre':  
+        echo "Vous êtes Angleterre! <br>";
+    break;
+    case 'France' : 
+        echo "Vous êtes Français! <br>";
+    break;
+    case 'Suisse' : 
+        echo "Vous êtes Suisse! <br>";
+};
+echo "<h2>Les Fonctions Prédéfinies</h2>";
+echo "<p>Une fonction est un morceau de code permettant d'automatiser un traitement ou de donner un affichage particulier.</p>";
+echo "<p>Afficher la date du jour avec la fonction date()</p>";
+echo 'Date : <br>';
+echo date("d/m/Y");
+echo "<h3>Afficher la taille d'une chaine avec la fonction strlen()</h3>";
+echo "<p><b>strlen()</b> est une fonction prédéfinie permettant de retourner la taille (nombre de caractères) d'une chaine.</p>";
+$phrase = $phrase = 'Mettez une phrase différente ici à cet endroit!';
+echo "La taille de phrase est ". strlen($phrase);
+echo "<h3>Couper une chaine avec la fonction substr()</h3>";
+$text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+echo "<p>substr(".'$text,'."0 -> à partir de,20 => Jusqu'à là)</p>";
+echo "<li>".substr($text,0,25) ."</li>";
+echo "<li>".substr($text,25,100) ."</li>";
+echo "<h2>Tester l'existance d'une variable avec isset()</h2>";
+// isset est pour vérifier si un variable exsite ou pas
+$pseudo = "joker";
+if(isset($pseudo)) {
+    echo'la variable $pseudo exist';
+}
+// Tester si le contenu d'une variable est empty()
+echo "<h2>Tester le contenu d'une variable avec empty()</h2>";
+if (empty($pseudo)) {
+    echo "<p>La variable ". $pseudo . " est vide.</p>";
+} else {
+    echo "<p>La variable ". $pseudo . " n'est pas vide.</p>";
+}
+$emptyv ="";
+if(empty($emptyv)) {
+    echo "<p>La variable ". $emptyv . " est vide.</p>";
+} else {
+    echo "<p>La variable ". $emptyv . " n'est pas vide.</p>";
+};
+if(!empty($pseudo)) {
+    echo '$pseudo'. " N'est pas vide";
+} else {
+    echo '<p>$pseudo'. "Vide</p>";
+};
+echo "<h2>Function</h2>";
+function calculTva() {
+    return 100*1.2;
+}
+echo calculTva()."<br>";
+function calculTva2($nombre) {
+    return $nombre * 1.2;
+}
+echo calculTva2(500)."<br>";
+echo calculTva2(1000)."<br>";
+echo "<p> Un espace local est le code déclaré à l'intérieur d'une fonction.</p>";
+echo "<p> Un espace local est le code déclaré à l'extérieur d'une fonction.</p>";
+echo "<h2>Les boucles.</h2>";
+echo "<h3>Boucle WHILE</h3>";
+echo "<p>Une boucle permet de d'exécuter plusieurs fois les mêmes instructions.</p>";
+$i = 0;
+while($i < 5) {
+    echo "$i / <br>";
+    $i++;
+}
+for ($j = 0; $j <= 15; $j++) {
+    echo "$j /";
+} 
+echo "<table border =\"2\"><tr>";
+        for ($ligne=0; $ligne < 10; $ligne++) {
+            echo "<tr>";
+            for ($cellule = 0; $cellule < 10; $cellule++){
+                echo "<td>".(10*$ligne+$cellule)."</td>";
+            }
+            echo"</tr>";
+        }
+echo "</table>";
+echo "<br>";
+for ($j=1 ; $j<=8 ; $j++) {
+    /* une ligne creuse*/
+    echo "*";
+    for ($i=1 ; $i<=8 ; $i++) {
+        echo ' ';
+    }
+    echo "*\n";
+}
+echo "<h3>Array</h3>";
+$listePrenom = array("ta","ti","tu","te","to","taa");
+echo '<pre>'; print_r($listePrenom); echo '</pre>';
+echo "<p>Nous ajoutons les balises html <pre> autour du print_r afin que les informations soient affichées de ligne en ligne.
+print_r est une instruction d'affichage améliorée permettant de voir le contenu d'un tableau array.</p>";
+echo "<p>avec var_dump</p>";
+var_dump($listePrenom);
+echo "<p>Pour extraire les valuers d'un tableau, on utilise <b>implode</b></p>";
+echo implode($listePrenom,"<br>");
+echo "<h3>Parcourrir un tableau array avec la boucle for </h3>";
+for ($i = 0; $i < sizeof($listePrenom); $i++) {
+    echo $listePrenom[$i]."<br>";
+}
+echo "<h3>Parcourrir un tableau array avec avec la boucle foreach</h3>";
+foreach($listePrenom as $cle => $valeur) {
+    echo "$cle - $valeur <br>";
+}
+$listeNumero = array(1,14,15,16,134,144);
+echo "La liste de numéro est :<br>";
+for ($i = 0; $i < sizeof($listeNumero); $i++) {
+    echo "$listeNumero[$i] <br>";
+}
+echo " calcule la moyenne des nombres contenus dans un tableau donné";
+?>
